@@ -7,13 +7,14 @@ services:
       target: development
     env_file:
         - .env
+    restart: always
     volumes:
       - .:/usr/src/app
       - /usr/app/node_modules
     # Run in dev Mode: npm run start:dev
     command: npm run start:dev
     ports:
-      - ${APP_PORT}:3000
+      - 3000:3000
     depends_on:
       - redis
       - postgres
